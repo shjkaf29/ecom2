@@ -13,8 +13,11 @@ Route::get('/product_details/{id}', [UserController::class, 'productDetails'])->
 
 Route::post('/addtocart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('addtocart');
 
-Route::post('/cartporducts', [UserController::class, 'cartProducts'])->middleware(['auth', 'verified'])->name('cartproducts');
+Route::get('/cartporducts', [UserController::class, 'cartProducts'])->middleware(['auth', 'verified'])->name('cartproducts');
 
+Route::get('/removecartproducts/{id}', [UserController::class, 'removeCart'])->middleware(['auth', 'verified'])->name('removecartproducts');
+
+Route::post('/confirm_order', [UserController::class, 'confirmOrder'])->middleware(['auth', 'verified'])->name('confirm_order');
 
 
 Route::middleware('auth')->group(function () {
