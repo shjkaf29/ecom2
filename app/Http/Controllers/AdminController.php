@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Container\Attributes\Auth;
 
 class AdminController extends Controller
 {
@@ -119,6 +121,38 @@ class AdminController extends Controller
 
             return redirect()->back()->with('product_message', 'Product updated successfully!');
         }
+
+        public function viewOrder(){
+            $orders = Order::all();
+            return view('admin.vieworders', compact('orders'));
+        }
+
+        
+        public function updateOrderStatus(Request $request, $id)
+{
+    if(auth()->check() && auth()->user()->user_type !== 'admin'){
+        abort(403, 'Unauthorized');
+    }
+
+    $order = Order::findOrFail($id);
+    $order->status = $request->status;
+    $order->save();
+
+    return redirect()->back()->with('order_message', 'Order status updated successfully!');
+}
+
+public function deleteOrder($id)
+{
+    if(auth()->check() && auth()->user()->user_type !== 'admin'){
+        abort(403, 'Unauthorized');
+    }
+
+    $order = Order::findOrFail($id);
+    $order->delete();
+
+    return redirect()->back()->with('order_message', 'Order deleted successfully!');
+}
+
 
 
 }

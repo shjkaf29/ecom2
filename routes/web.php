@@ -19,6 +19,13 @@ Route::get('/removecartproducts/{id}', [UserController::class, 'removeCart'])->m
 
 Route::post('/confirm_order', [UserController::class, 'confirmOrder'])->middleware(['auth', 'verified'])->name('confirm_order');
 
+Route::get('/myorders', [UserController::class, 'myOrders'])->middleware(['auth', 'verified'])->name('myorders');
+
+Route::get('/cancel-order/{id}', [UserController::class, 'cancelOrder'])
+     ->name('user.cancelorder')
+     ->middleware('auth');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,7 +46,10 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::delete('/view_product/{id}',[AdminController::class, 'deleteProduct'])->name('admin.deleteproduct');
     Route::get('/update_product/{id}', [AdminController::class, 'updateProduct'])->name('admin.updateproduct');
     Route::post('/update_product/{id}', [AdminController::class, 'postUpdateProduct'])->name('admin.postupdateproduct');
-
+    Route::get('/vieworder', [AdminController::class, 'viewOrder'])->name('admin.vieworders');
+    Route::post('/update_order_status/{id}', [AdminController::class, 'updateOrderStatus'])->name('admin.updateorderstatus');
+    Route::delete('/delete_order/{id}', [AdminController::class, 'deleteOrder'])->name('admin.deleteorder');
 });
+
 
 require __DIR__.'/auth.php';

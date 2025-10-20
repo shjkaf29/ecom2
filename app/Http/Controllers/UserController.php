@@ -100,4 +100,23 @@ class UserController extends Controller
     return redirect()->back()->with('confirm_order', 'Order has been confirmed!');
 }
 
+    public function myOrders(){
+        $orders = Order::where('user_id', Auth::id())->get();
+        return view('myorders', compact('orders'));
+    }
+
+    public function cancelOrder($id)
+    {
+        $order = Order::where('id', $id)
+                    ->where('user_id', Auth::id())
+                    ->where('status', 'pending') // only allow cancel before approval
+                    ->firstOrFail();
+
+        $order->status = 'cancelled';
+        $order->save();
+
+        return redirect()->back()->with('order_message', 'Order has been cancelled.');
+    }
+
+
 }
