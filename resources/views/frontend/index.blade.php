@@ -1,7 +1,5 @@
 @extends('maindesign')
-
 @section('index')
-
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -14,7 +12,8 @@
           <div class="box">
             <a href="{{ route('product_details', $product->id) }}">
               <div class="img-box">
-                <img src="{{ asset('product_images/' . $product->product_image) }}" alt="">
+                <img 
+                src="{{ asset('product_images/' . $product->product_image) }}" alt="">
               </div>
               <div class="detail-box">
                 <h6>

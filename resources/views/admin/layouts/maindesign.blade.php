@@ -85,6 +85,7 @@
                     <li><a href="{{ route('admin.addproduct') }}">Add Products</a></li>
                     <li><a href="{{ route('admin.viewproduct') }}">View Products</a></li>
                     <li><a href="{{ route('admin.vieworders') }}">View Order</a></li>
+                    <li><a href="{{ route('admin.users') }}">View Users</a></li>
                   </ul>
                 </li>
         </ul>
@@ -105,6 +106,8 @@
           @yield('view_product');
           @yield('update_product')
           @yield('view_orders')
+          @yield('view_users')
+          @yield('edit_user')
         </section>
 
         {{-- end of all sections --}}
