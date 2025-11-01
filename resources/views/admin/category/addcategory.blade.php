@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('add_category')
     @if('category_message')
@@ -7,7 +7,7 @@
         </div>
     @endif
     <div class="container-fluid">
-        <form action="{{ route('admin.postaddcategory') }}" method="POST">
+        <form action="{{ route('admin.category.postaddcategory') }}" method="POST">
         @csrf
             <input type="text" name="category" placeholder="Add Category Name!!!">
             <input type="submit" name="submit" value="Add Category">

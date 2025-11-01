@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('view_users')
 <div class="container mt-5">

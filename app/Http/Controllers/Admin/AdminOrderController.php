@@ -10,7 +10,7 @@ class AdminOrderController extends Controller
 {
     public function viewOrder() {
         $orders = Order::all();
-        return view('admin.vieworders', compact('orders'));
+        return view('admin.orders.vieworders', compact('orders'));
     }
 
     public function updateOrderStatus(Request $request, $id) {

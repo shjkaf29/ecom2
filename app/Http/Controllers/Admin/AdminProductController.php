@@ -11,7 +11,7 @@ class AdminProductController extends Controller
 {
     public function addProduct() {
         $categories = Category::all(); 
-        return view('admin.addproduct', compact('categories'));
+        return view('admin.product.addproduct', compact('categories'));
     }
 
     public function postAddProduct(Request $request) {
@@ -39,7 +39,7 @@ class AdminProductController extends Controller
 
     public function viewProduct() {
         $products = Product::all();
-        return view('admin.viewproduct', compact('products'));
+        return view('admin.product.viewproduct', compact('products'));
     }
 
     public function deleteProduct($id) {
@@ -50,7 +50,7 @@ class AdminProductController extends Controller
     public function updateProduct($id) {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        return view('admin.updateproduct', compact('product', 'categories'));
+        return view('admin.product.updateproduct', compact('product', 'categories'));
     }
 
     public function postUpdateProduct(Request $request, $id) {

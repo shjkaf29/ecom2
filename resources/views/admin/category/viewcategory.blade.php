@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('view_category')
 
@@ -27,13 +27,13 @@
                         <td>{{ $category->category }}</td>
                         <td>{{ $category->created_at->format('d M, Y') }}</td>
                         <td>
-                        <form action="{{ route('admin.categorydelete', $category->id) }}" method="POST" onsubmit="return confirm('Delete this category?')">
+                        <form action="{{ route('admin.category.categorydelete', $category->id) }}" method="POST" onsubmit="return confirm('Delete this category?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" style="color: red;">Delete</button>
                             </form>
 
-                            <a href="{{ route('admin.categoryupdate', $category->id) }}" style="color: blue;">Edit</a>
+                            <a href="{{ route('admin.category.categoryupdate', $category->id) }}" style="color: blue;">Edit</a>
                         </td>
                     </tr>
                 @empty

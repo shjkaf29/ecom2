@@ -9,7 +9,7 @@ use App\Models\Category;
 class AdminCategoryController extends Controller
 {
     public function addCategory() {
-        return view('admin.addcategory');
+        return view('admin.category.addcategory');
     }
 
     public function postAddCategory(Request $request) {
@@ -22,7 +22,7 @@ class AdminCategoryController extends Controller
 
     public function viewCategory() {
         $categories = Category::all();
-        return view('admin.viewcategory', compact('categories'));
+        return view('admin.category.viewcategory', compact('categories'));
     }
 
     public function deleteCategory($id) {
@@ -32,7 +32,7 @@ class AdminCategoryController extends Controller
 
     public function updateCategory($id) {
         $category = Category::findOrFail($id);
-        return view('admin.updatecategory', compact('category'));
+        return view('admin.category.updatecategory', compact('category'));
     }
 
     public function postUpdateCategory(Request $request, $id) {

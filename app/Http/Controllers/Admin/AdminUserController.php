@@ -10,12 +10,12 @@ class AdminUserController extends Controller
 {
     public function viewUsers() {
         $users = User::where('user_type', 'user')->get();
-        return view('admin.view_users', compact('users'));
+        return view('admin.users.view_users', compact('users'));
     }
 
     public function editUser($id) {
         $user = User::findOrFail($id);
-        return view('admin.edit_user', compact('user'));
+        return view('admin.users.edit_user', compact('user'));
     }
 
     public function updateUser(Request $request, $id) {
@@ -26,6 +26,7 @@ class AdminUserController extends Controller
         ]);
 
         $user = User::findOrFail($id);
+        
         $user->update($request->only(['name', 'email', 'user_type']));
 
         return redirect()->route('admin.users')->with('message', 'User updated successfully!');

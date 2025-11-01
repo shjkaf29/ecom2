@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('view_product')
 
@@ -34,6 +34,9 @@
                         <form action="{{ route('admin.deleteproduct',$product->id) }}" method="POST" onsubmit="return confirm('Delete this category?')">
                                 @csrf
                                 @method('DELETE')
+
+
+                                
                                 <button type="submit" style="color: red;">Delete</button>
                             </form>
 

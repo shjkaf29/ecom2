@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('add_product')
     @if (session('product_message'))
@@ -13,9 +13,8 @@
                 <h5 class="mb-0">Add New Product</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.postaddproduct') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.product.postaddproduct') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
                     <div class="mb-3">
                         <label for="product_title" class="form-label">Product Name</label>
                         <input type="text" id="product_title" name="product_title" 

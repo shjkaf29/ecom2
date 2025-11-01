@@ -76,15 +76,15 @@
                 <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Category </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ route('admin.addcategory') }}">Add Category</a></li>
-                    <li><a href="{{ route('admin.viewcategory') }}">View Category</a></li>
+                    <li><a href="{{ route('admin.category.addcategory') }}">Add Category</a></li>
+                    <li><a href="{{ route('admin.category.viewcategory') }}">View Category</a></li>
                   </ul>
                 </li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{ route('admin.addproduct') }}">Add Products</a></li>
-                    <li><a href="{{ route('admin.viewproduct') }}">View Products</a></li>
-                    <li><a href="{{ route('admin.vieworders') }}">View Order</a></li>
+                    <li><a href="{{ route('admin.product.addproduct') }}">Add Products</a></li>
+                    <li><a href="{{ route('admin.product.viewproduct') }}">View Products</a></li>
+                    <li><a href="{{ route('admin.orders.vieworders') }}">View Order</a></li>
                     <li><a href="{{ route('admin.users') }}">View Users</a></li>
                   </ul>
                 </li>

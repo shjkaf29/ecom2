@@ -1,4 +1,4 @@
-@extends('admin.maindesign')
+@extends('admin.layouts.maindesign')
 
 @section('view_orders')
 
@@ -53,7 +53,7 @@
                             <td>{{ $order->created_at->format('d M Y') }}</td>
                             <td class="d-flex flex-column gap-2">
                                 <!-- Update Status Form -->
-                                <form action="{{ route('admin.updateorderstatus', $order->id) }}" method="POST" class="d-flex gap-2">
+                                <form action="{{ route('admin.orders.updateorderstatus', $order->id) }}" method="POST" class="d-flex gap-2">
                                     @csrf
                                     <select name="status" class="form-select form-select-sm">
                                         <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Pending</option>
